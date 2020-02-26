@@ -1,0 +1,4 @@
+firstName,lastName,gender,age,salary,address_streetAddress,address_city,address_state,address_postalCode,phoneNumbers_type,phoneNumbers_number
+"Rack","Jackon","man",24,25000,"126","San Jone","CA","394221","home","7383627627"
+"Ram","Alapure","man",24,25000.05,"126","San Jone","CA","394221","home","7383627627"
+"Ram","Alapure","man",24,25000.05,"126","San Jone","CA","394221","work","9383627627"

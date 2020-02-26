@@ -1,0 +1,44 @@
+[
+  {
+    "firstName": "Rack",
+    "lastName": "Jackon",
+    "gender": "man",
+    "age": 24,
+    "salary": 25000.00,
+    "address": {
+      "streetAddress": "126",
+      "city": "San Jone",
+      "state": "CA",
+      "postalCode": "394221"
+    },
+    "phoneNumbers": [
+      {
+        "type": "home",
+        "number": "7383627627"
+      }
+    ]
+  },
+  {
+    "firstName": "Ram",
+    "lastName": "Alapure",
+    "age": 24,
+    "salary": 25000.05,
+    "address": {
+      "streetAddress": "126",
+      "city": "San Jone",
+      "state": "CA",
+      "postalCode": "394221"
+    },
+    "phoneNumbers": [
+      {
+        "type": "home",
+        "number": "7383627627"
+      },
+      {
+        "type": "work",
+        "number": "9383627627"
+      }
+    ],
+    "gender": "man"
+  }
+]
