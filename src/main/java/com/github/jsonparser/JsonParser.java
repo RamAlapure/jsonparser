@@ -88,7 +88,7 @@ public class JsonParser {
      * @param json      - The input json
      * @param separator - The custom header/column separator key
      * @param delimiter - The custom delimiter key
-     * @return
+     * @return Returns string representation of csv.
      * @throws JsonParsingException
      */
     public static String parse2Csv(String json, String separator, String delimiter) throws JsonParsingException {
@@ -141,7 +141,7 @@ public class JsonParser {
      *
      * @param json      - The input json
      * @param xsdSchema - The xsd schema json string
-     * @return Returns a string representation of csv.
+     * @return Returns string representation of csv.
      * @throws JsonParsingException
      */
     public String parse2CsvWithXsd(String json, String xsdSchema) throws JsonParsingException {
@@ -189,7 +189,7 @@ public class JsonParser {
      * This method does some pre processing and then build csv.
      *
      * @param json - The input json
-     * @return returns a JsonParser object
+     * @return Returns list of records.
      */
     private static List<Object[]> json2Sheet(String json) {
         return processJson(json, null);
@@ -200,7 +200,7 @@ public class JsonParser {
      *
      * @param json - The input json
      * @param xsd  - The xsd schema json string
-     * @return
+     * @return Returns list of records.
      */
     private List<Object[]> json2Sheet(String json, String xsd) {
         return processJson(json, xsd);
@@ -211,7 +211,7 @@ public class JsonParser {
      * 2D representation of Json document.
      *
      * @param json - The input json
-     * @return returns a JsonParser object
+     * @return Returns list of records.
      */
     private List<Object[]> json2Header(String json) {
         List<Object[]> records = new ArrayList<>();
@@ -224,7 +224,7 @@ public class JsonParser {
      *
      * @param json - The input json
      * @param xsd  - The xsd schema json string can be null
-     * @return
+     * @return Returns list of records.
      */
     private static List<Object[]> processJson(String json, String xsd) {
         List<Object[]> records = new ArrayList<>();
@@ -238,6 +238,11 @@ public class JsonParser {
         return records;
     }
 
+    /**
+     * This method removes the duplicate records from list.
+     *
+     * @param records - List of records processed from json.
+     */
     private static void removeDuplicates(List<Object[]> records) {
         Object[] last = records.get(records.size() - 1);
         Object[] secondLast = records.get(records.size() - 2);
@@ -263,6 +268,13 @@ public class JsonParser {
         if (delete) records.remove(records.size() - 1);
     }
 
+    /**
+     * This method build configuration for json processing and extracting the headers/columns.
+     *
+     * @param json    - The input json for processing
+     * @param records - The input record list to add headers/columns.
+     * @return Returns he headers/columns.
+     */
     private static ArrayList<String> configureAndBuildHeader(String json, List<Object[]> records) {
         setDefaultConfiguration();
 
@@ -303,6 +315,13 @@ public class JsonParser {
         });
     }
 
+    /**
+     * This method extracts the primitive paths headers/columns from the json.
+     *
+     * @param parse    - The json parse document context.
+     * @param pathList - The input path list.
+     * @return Returns primitive paths headers/columns.
+     */
     private static HashSet<String> extractPrimitivePaths(DocumentContext parse, List<String> pathList) {
         HashSet<String> primitivePaths = new LinkedHashSet<>();
         pathList.forEach(path -> {
